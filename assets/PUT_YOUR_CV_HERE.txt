@@ -1,0 +1,1 @@
+Rename your CV PDF to Dineshkumar_Anbalagan_Java_Backend_Developer_CV.pdf and place it in this assets folder.
