@@ -3,10 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Dineshkumar Anbalagan | Java Backend Developer</title>
-  <meta name="description" content="Portfolio of Dineshkumar Anbalagan, Java Backend Developer with 2+ years experience in Spring Boot, REST APIs, PostgreSQL, Elasticsearch, and backend service integration." />
+
+  <meta
+    name="description"
+    content="Portfolio of Dineshkumar Anbalagan, Java Backend Developer with 2+ years experience in Spring Boot, REST APIs, PostgreSQL, Elasticsearch, and backend service integration."
+  />
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header class="site-header">
     <nav class="nav">
@@ -27,15 +34,19 @@
   </header>
 
   <main>
+    <!-- HOME -->
     <section id="home" class="hero section">
       <div class="hero-content">
         <p class="eyebrow">Java Backend Developer</p>
+
         <h1>Hi, I’m Dineshkumar Anbalagan</h1>
+
         <p class="hero-text">
           Java Backend Developer with 2+ years of experience in Spring Boot, REST APIs,
           SQL databases, PostgreSQL, MyBatis, Elasticsearch, Flyway, RabbitMQ, and backend
           service integration.
         </p>
+
         <p class="hero-subtext">
           MSc Computer Science Graduate from the University of Hertfordshire, UK.
           Open to Graduate Software Engineer, Junior Java Developer, and Backend Developer roles.
@@ -43,14 +54,23 @@
 
         <div class="hero-actions">
           <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="assets/Dineshkumar_Anbalagan_Java_Backend_Developer_CV.pdf" target="_blank">Download CV</a>
+          <a
+            class="btn secondary"
+            href="assets/Dineshkumar_Anbalagan_Java_Backend_Developer_CV.pdf"
+            target="_blank"
+          >
+            Download CV
+          </a>
         </div>
       </div>
 
       <div class="hero-card">
         <div class="terminal-bar">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
         <pre><code>$ who_am_i
 Java Backend Developer
 
@@ -63,6 +83,7 @@ Open to UK software engineering roles</code></pre>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="section-heading">
         <p class="eyebrow">About</p>
@@ -76,6 +97,7 @@ Open to UK software engineering roles</code></pre>
             and real estate domains. I have worked on backend services, REST APIs, database-driven
             workflows, production debugging, monitoring, and service integrations.
           </p>
+
           <p>
             My main focus is building reliable backend applications using Java, Spring Boot,
             REST APIs, PostgreSQL, MySQL, MyBatis, Elasticsearch, Flyway, RabbitMQ, and related
@@ -88,10 +110,12 @@ Open to UK software engineering roles</code></pre>
             <strong>2+</strong>
             <span>Years Experience</span>
           </div>
+
           <div>
             <strong>MSc</strong>
             <span>Computer Science</span>
           </div>
+
           <div>
             <strong>UK</strong>
             <span>Open to Roles</span>
@@ -100,6 +124,7 @@ Open to UK software engineering roles</code></pre>
       </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="section">
       <div class="section-heading">
         <p class="eyebrow">Skills</p>
@@ -111,14 +136,17 @@ Open to UK software engineering roles</code></pre>
           <h3>Backend</h3>
           <p>Java, Spring Boot, REST APIs, Microservices, Maven</p>
         </div>
+
         <div class="skill-card">
           <h3>Database</h3>
           <p>PostgreSQL, MySQL, SQL, MyBatis, Hibernate, Flyway</p>
         </div>
+
         <div class="skill-card">
           <h3>Search & Messaging</h3>
           <p>Elasticsearch, Kibana, RabbitMQ, Kafka</p>
         </div>
+
         <div class="skill-card">
           <h3>DevOps & Testing</h3>
           <p>Docker, Kubernetes, Jenkins, GitHub Actions, JUnit, Mockito, Datadog</p>
@@ -126,15 +154,18 @@ Open to UK software engineering roles</code></pre>
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects" class="section">
       <div class="section-heading">
         <p class="eyebrow">Projects</p>
-        <h2>Featured backend project</h2>
+        <h2>Featured projects</h2>
       </div>
 
+      <!-- PROJECT 1 -->
       <article class="project-card">
         <div>
           <h3>Dynamic Shipment Orchestration Backend</h3>
+
           <p>
             A Java Spring Boot backend project using a ServiceBus/Orchestrator pattern to
             dynamically route requests to database, search, and reporting services at runtime.
@@ -175,8 +206,57 @@ Open to UK software engineering roles</code></pre>
           <div>PostgreSQL / Elasticsearch / PDF Invoice</div>
         </div>
       </article>
+
+      <!-- PROJECT 2 -->
+      <article class="project-card">
+        <div>
+          <h3>BioSamples MCP Server</h3>
+
+          <p>
+            Google Summer of Code project focused on building an MCP server for EMBL-EBI
+            BioSamples. The project connects tool-based workflows with BioSamples APIs to
+            search, extract, validate, and prepare biological sample metadata.
+          </p>
+
+          <ul class="project-list">
+            <li>Integrated BioSamples API for searching existing biological sample records</li>
+            <li>Built MCP tools for sample search, metadata extraction, and validation workflows</li>
+            <li>Extracted fields such as organism, tissue, disease, material, location, and collection date</li>
+            <li>Used JSON Schema for structured request and response validation</li>
+            <li>Added provenance and confidence tracking for extracted metadata fields</li>
+            <li>Implemented middleware-based logging, caching, and error handling</li>
+            <li>Designed the server with a read-only-first approach for safer tool execution</li>
+          </ul>
+
+          <div class="tags">
+            <span>Python</span>
+            <span>FastMCP</span>
+            <span>MCP</span>
+            <span>BioSamples API</span>
+            <span>REST APIs</span>
+            <span>JSON Schema</span>
+            <span>Redis</span>
+          </div>
+
+          <div class="project-actions">
+            <a class="btn primary" href="#" target="_blank">GitHub Repo</a>
+            <a class="btn secondary" href="#" target="_blank">Project Demo</a>
+          </div>
+        </div>
+
+        <div class="project-flow">
+          <div>Sample Description</div>
+          <span>↓</span>
+          <div>MCP Tool Execution</div>
+          <span>↓</span>
+          <div>Metadata Extraction / Validation</div>
+          <span>↓</span>
+          <div>Structured BioSamples Draft</div>
+        </div>
+      </article>
     </section>
 
+    <!-- EXPERIENCE -->
     <section id="experience" class="section">
       <div class="section-heading">
         <p class="eyebrow">Experience</p>
@@ -186,9 +266,11 @@ Open to UK software engineering roles</code></pre>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
+
           <div class="timeline-content">
             <h3>Software Engineer — LTIMindtree</h3>
             <p class="date">July 2022 – August 2024 | Chennai, India</p>
+
             <ul>
               <li>Developed backend services and REST APIs using Java and Spring Boot.</li>
               <li>Worked on logistics and real estate domain applications.</li>
@@ -201,9 +283,11 @@ Open to UK software engineering roles</code></pre>
 
         <div class="timeline-item">
           <div class="timeline-dot"></div>
+
           <div class="timeline-content">
             <h3>MSc Computer Science — University of Hertfordshire</h3>
             <p class="date">Completed | United Kingdom</p>
+
             <p>
               Strengthened software engineering, backend architecture, programming, and
               project development skills through academic and practical work.
@@ -213,6 +297,7 @@ Open to UK software engineering roles</code></pre>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="section contact-section">
       <div class="section-heading">
         <p class="eyebrow">Contact</p>
@@ -233,7 +318,9 @@ Open to UK software engineering roles</code></pre>
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Dineshkumar Anbalagan. Built with HTML, CSS, and JavaScript.</p>
+    <p>
+      © <span id="year"></span> Dineshkumar Anbalagan. Built with HTML, CSS, and JavaScript.
+    </p>
   </footer>
 
   <script src="script.js"></script>
