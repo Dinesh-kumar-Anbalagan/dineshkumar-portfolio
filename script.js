@@ -1,96 +1,94 @@
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-const year = document.getElementById("year");
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const year = document.getElementById("year");
 
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-  });
-
-  document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
     });
-  });
-}
 
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
-
-/* Project slider */
-const projectCards = document.querySelectorAll(".project-slides .project-card");
-const dots = document.querySelectorAll(".slider-dots .dot");
-const prevBtn = document.getElementById("prevProject");
-const nextBtn = document.getElementById("nextProject");
-
-let currentProject = 0;
-let autoSlide;
-
-function showProject(index) {
-  if (!projectCards.length || !dots.length) {
-    return;
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
   }
 
-  projectCards[currentProject].classList.remove("active");
-
-  if (dots[currentProject]) {
-    dots[currentProject].classList.remove("active");
+  if (year) {
+    year.textContent = new Date().getFullYear();
   }
 
-  currentProject = index;
+  /* Project slider */
+  const projectCards = document.querySelectorAll(".project-slides .project-card");
+  const dots = document.querySelectorAll(".slider-dots .dot");
+  const prevBtn = document.getElementById("prevProject");
+  const nextBtn = document.getElementById("nextProject");
 
-  if (currentProject < 0) {
-    currentProject = projectCards.length - 1;
+  let currentProject = 0;
+  const slideTime = 30000; // 30 seconds
+
+  function showProject(index) {
+    if (projectCards.length === 0) {
+      return;
+    }
+
+    if (index < 0) {
+      index = projectCards.length - 1;
+    }
+
+    if (index >= projectCards.length) {
+      index = 0;
+    }
+
+    projectCards.forEach((card) => {
+      card.classList.remove("active");
+    });
+
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+
+    projectCards[index].classList.add("active");
+
+    if (dots[index]) {
+      dots[index].classList.add("active");
+    }
+
+    currentProject = index;
   }
 
-  if (currentProject >= projectCards.length) {
-    currentProject = 0;
+  function nextProject() {
+    showProject(currentProject + 1);
   }
 
-  projectCards[currentProject].classList.add("active");
-
-  if (dots[currentProject]) {
-    dots[currentProject].classList.add("active");
+  function prevProject() {
+    showProject(currentProject - 1);
   }
-}
 
-function nextProject() {
-  showProject(currentProject + 1);
-}
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      nextProject();
+    });
+  }
 
-function prevProject() {
-  showProject(currentProject - 1);
-}
-
-function startAutoSlide() {
-  autoSlide = setInterval(() => {
-    nextProject();
-  }, 30000);
-}
-
-function resetAutoSlide() {
-  clearInterval(autoSlide);
-  startAutoSlide();
-}
-
-if (projectCards.length && dots.length && prevBtn && nextBtn) {
-  nextBtn.addEventListener("click", () => {
-    nextProject();
-    resetAutoSlide();
-  });
-
-  prevBtn.addEventListener("click", () => {
-    prevProject();
-    resetAutoSlide();
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      prevProject();
+    });
+  }
 
   dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
       showProject(index);
-      resetAutoSlide();
     });
   });
 
-  startAutoSlide();
-}
+  showProject(0);
+
+  if (projectCards.length > 1) {
+    setInterval(() => {
+      nextProject();
+    }, slideTime);
+  }
+});
