@@ -28,10 +28,15 @@ let currentProject = 0;
 let autoSlide;
 
 function showProject(index) {
-  if (!projectCards.length) return;
+  if (!projectCards.length || !dots.length) {
+    return;
+  }
 
   projectCards[currentProject].classList.remove("active");
-  dots[currentProject].classList.remove("active");
+
+  if (dots[currentProject]) {
+    dots[currentProject].classList.remove("active");
+  }
 
   currentProject = index;
 
@@ -44,7 +49,10 @@ function showProject(index) {
   }
 
   projectCards[currentProject].classList.add("active");
-  dots[currentProject].classList.add("active");
+
+  if (dots[currentProject]) {
+    dots[currentProject].classList.add("active");
+  }
 }
 
 function nextProject() {
@@ -66,7 +74,7 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-if (projectCards.length && dots.length) {
+if (projectCards.length && dots.length && prevBtn && nextBtn) {
   nextBtn.addEventListener("click", () => {
     nextProject();
     resetAutoSlide();
