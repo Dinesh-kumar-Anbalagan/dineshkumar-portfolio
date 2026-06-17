@@ -29,11 +29,18 @@ body {
     var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+img,
+pre,
+code {
+  max-width: 100%;
 }
 
 /* Header */
@@ -85,9 +92,14 @@ a {
 
 /* Common section */
 .section {
+  width: 100%;
   max-width: 1120px;
   margin: 0 auto;
   padding: 88px 24px;
+}
+
+.section-heading {
+  margin-bottom: 34px;
 }
 
 .eyebrow {
@@ -119,7 +131,7 @@ h3 {
 .hero {
   min-height: 86vh;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
   gap: 40px;
   align-items: center;
 }
@@ -175,6 +187,7 @@ h3 {
   border-radius: 22px;
   box-shadow: var(--shadow);
   overflow: hidden;
+  min-width: 0;
 }
 
 .terminal-bar {
@@ -194,6 +207,8 @@ h3 {
 .hero-card pre {
   padding: 28px;
   overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .hero-card code {
@@ -203,13 +218,9 @@ h3 {
 }
 
 /* About */
-.section-heading {
-  margin-bottom: 34px;
-}
-
 .about-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.7fr);
   gap: 28px;
 }
 
@@ -258,7 +269,7 @@ h3 {
 /* Skills */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -277,9 +288,10 @@ h3 {
 /* Projects */
 .project-card {
   padding: 30px;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
   gap: 30px;
-  min-height: 520px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .project-card p {
@@ -291,6 +303,10 @@ h3 {
   color: var(--muted);
   padding-left: 20px;
   margin-bottom: 18px;
+}
+
+.project-list li {
+  margin-bottom: 6px;
 }
 
 .tags {
@@ -307,6 +323,7 @@ h3 {
   border-radius: 999px;
   padding: 8px 12px;
   font-size: 0.9rem;
+  word-break: break-word;
 }
 
 .project-flow {
@@ -318,6 +335,7 @@ h3 {
   align-content: center;
   gap: 12px;
   text-align: center;
+  min-width: 0;
 }
 
 .project-flow div {
@@ -325,6 +343,7 @@ h3 {
   border-radius: 14px;
   padding: 14px;
   background: rgba(56, 189, 248, 0.08);
+  word-break: break-word;
 }
 
 .project-flow span {
@@ -335,11 +354,13 @@ h3 {
 /* Project slider */
 .project-slider {
   position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 
 .project-slides {
   position: relative;
-  min-height: 620px;
+  width: 100%;
 }
 
 .project-slides .project-card {
@@ -412,7 +433,7 @@ h3 {
 
 .timeline-item {
   display: grid;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 20px minmax(0, 1fr);
   gap: 18px;
 }
 
@@ -480,14 +501,23 @@ h3 {
 
 /* Tablet */
 @media (max-width: 900px) {
+  .section {
+    padding: 72px 20px;
+  }
+
   .hero,
   .about-grid,
   .project-card {
     grid-template-columns: 1fr;
   }
 
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
   .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav-links {
@@ -511,6 +541,14 @@ h3 {
     display: block;
   }
 
+  .project-card {
+    padding: 24px;
+  }
+
+  .project-flow {
+    margin-top: 10px;
+  }
+
   .slider-controls {
     flex-direction: column;
   }
@@ -518,25 +556,77 @@ h3 {
   .slider-btn {
     width: 100%;
   }
-
-  .project-card,
-  .project-slides {
-    min-height: auto;
-  }
 }
 
 /* Mobile */
 @media (max-width: 560px) {
   .section {
-    padding: 64px 18px;
+    padding: 56px 16px;
+  }
+
+  h1 {
+    font-size: 2.35rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
+  .hero-card pre {
+    padding: 18px;
+  }
+
   .hero-card code {
+    font-size: 0.78rem;
+  }
+
+  .about-text,
+  .skill-card,
+  .project-card,
+  .timeline-content,
+  .contact-section {
+    border-radius: 16px;
+  }
+
+  .about-text,
+  .timeline-content,
+  .contact-section {
+    padding: 20px;
+  }
+
+  .skill-card,
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-list {
+    padding-left: 18px;
+  }
+
+  .tags span {
     font-size: 0.8rem;
+    padding: 7px 10px;
+  }
+
+  .project-flow {
+    padding: 16px;
+  }
+
+  .project-flow div {
+    padding: 12px;
+    font-size: 0.9rem;
   }
 
   .hero-actions,
@@ -548,5 +638,42 @@ h3 {
   .btn,
   .contact-links a {
     width: 100%;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-dot {
+    display: none;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 380px) {
+  .section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .nav {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    padding: 16px;
+  }
+
+  .tags {
+    gap: 8px;
+  }
+
+  .tags span {
+    font-size: 0.76rem;
   }
 }
